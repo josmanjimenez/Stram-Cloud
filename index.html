@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=;, initial-scale=1.0">
-    <title>app-netflix</title>
+    <title>Stream Cloud</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <header id="header" class="header-container">
         <span class="header-arrow inactive">&lt;</span>
-        <h1 class="header-title">PlatziMovies</h1>
+        <h1 class="header-title">Stream Cloud</h1>
         <h1 class="header-title header-title--categoryView inactive">Acción</h1>
     
         <form id="searchForm" class="header-searchForm">
-          <input type="text" placeholder="Vengadores" />
-          <button>🔍</button>
+          <input type="text" placeholder="Buscar" />
+          <button id ="searchBtn">🔍</button>
         </form>
       </header>
     
@@ -26,30 +26,71 @@
         </div>
     
         <article class="trendingPreview-movieList">
-          <div class="movie-container">
+          <!-- <div class="movie-container">
             <img
               src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
               class="movie-img"
               alt="Nombre de la película"
             />
-          </div>
+          </div> -->
     
-          <div class="movie-container">
-            <img
-              src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-              class="movie-img"
-              alt="Nombre de la película"
-            />
-          </div>
-    
-          <div class="movie-container">
-            <img
-              src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-              class="movie-img"
-              alt="Nombre de la película"
-            />
-          </div>
+          
+          
         </article>
+      </section>
+
+      <section id="mainMovie" class="moviesList-container " >
+         
+        
+        <h2>Action</h2>
+        <article class="movieList-action">
+          
+          <!-- <div class="movieMain-container">
+            <img
+              src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+              class="movie-img"
+              alt="Nombre de la película"
+            />
+          </div> -->
+          
+        </article>
+        <h2>Love</h2>
+        <article class="movieList-love">
+          
+          <!-- <div class="movieMain-container">
+            <img
+              src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+              class="movie-img"
+              alt="Nombre de la película"
+            />
+          </div> -->
+
+        </article>
+
+        <article class="movieList-family">
+          <h2>Family</h2>
+          <!-- <div class="movieMain-container">
+            <img
+              src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+              class="movie-img"
+              alt="Nombre de la película"
+            />
+          </div> -->
+          
+        </article>
+
+        <article class="movieList-scienceFiction">
+          <h2>Science Fiction</h2>
+          <!-- <div class="movieMain-container">
+            <img
+              src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+              class="movie-img"
+              alt="Nombre de la película"
+            />
+          </div> -->
+          
+        </article>
+
       </section>
     
       <section id="categoriesPreview" class="categoriesPreview-container">
@@ -71,7 +112,7 @@
       </section>
     
       <section id="genericList" class="genericList-container inactive">
-        <div class="movie-container">
+        <div class="movieMain-container">
           <img
             src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
             class="movie-img"
@@ -79,7 +120,7 @@
           />
         </div>
     
-        <div class="movie-container">
+        <div class="movieMain-container">
           <img
             src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
             class="movie-img"
@@ -87,7 +128,7 @@
           />
         </div>
     
-        <div class="movie-container">
+        <div class="movieMain-container">
           <img
             src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
             class="movie-img"
@@ -121,7 +162,7 @@
           <h2 class="relatedMovies-title">Películas similares</h2>
     
           <div class="relatedMovies-scrollContainer">
-            <div class="movie-container">
+            <div class="movieMain-container">
               <img
                 src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
                 class="movie-img"
@@ -129,7 +170,7 @@
               />
             </div>
             
-            <div class="movie-container">
+            <div class="movieMain-container">
               <img
                 src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
                 class="movie-img"
@@ -137,7 +178,7 @@
               />
             </div>
             
-            <div class="movie-container">
+            <div class="movieMain-container">
               <img
                 src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
                 class="movie-img"
@@ -148,10 +189,13 @@
         </article>
       </section>
     
-      <footer>Hecho con amor en Platzi por @juandc</footer>
+      <footer>Hecho por Josman Jimenez  🚀🚀</footer>
       
-      <script src="./src/secrets.js"></script>
+      <script src="./src/secret.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="./src/nodes.js"></script>
       <script src="./src/main.js"></script>
+      <script src="./src/navigator.js"></script>
    
 </body>
 </html>

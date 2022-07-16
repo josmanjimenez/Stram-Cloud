@@ -1,13 +1,13 @@
 * { box-sizing: border-box; }
 
 :root {
-  --purple-light-1: #FBFAFB;
-  --purple-light-2: #EEEAF2;
-  --purple-medium-1: #AA83C8;
-  --purple-medium-2: #8B48BF;
-  --purple-medium-3: #5C218A;
-  --purple-dark-1: #3E0F64;
-  --purple-dark-2: #2A0646;
+  --purple-light-1: #0f1723;
+  --purple-light-2: #23354c;
+  --purple-medium-1: #120907;
+  --purple-medium-2: #121c30;
+  --purple-medium-3: #124863;
+  --purple-dark-1:  #1777a1;
+  --purple-dark-2: #20a7d9;
 
   --yellow: #EECC75;
   --green: #CAD297;
@@ -66,14 +66,14 @@ h3 {
 
 input {
   background-color: var(--purple-light-2);
-  color: var(--purple-medium-2);
+  color: whitesmoke;
   border: none;
   font-size: 18px;
   padding-left: 16px;
 }
 
 input::placeholder {
-  color: var(--purple-medium-1);
+  color: whitesmoke;
   font-family: var(--font-family-text);
 }
 
@@ -137,7 +137,10 @@ button {
 } 
 
 .header-title {
-  margin-bottom: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 42px;
+  
 }
 
 .header-arrow {
@@ -165,6 +168,7 @@ button {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+
 .header-searchForm button {
   width: 56px;
   height: 48px;
@@ -186,21 +190,21 @@ button {
   width: 72px;
 }
 
-.trendingPreview-movieList {
+.trendingPreview-movieList, .movieList-action, .movieList-love, .movieList-family, .movieList-scienceFiction  {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   height: 241px;
-  padding-left: 24px;
+  padding-left: 7px;
   padding-bottom: 16px;
 }
 
-.trendingPreview-movieList .movie-container {
+.trendingPreview-movieList .movie-container,.movieList-action .movieMain-container, .movieList-love .movieMain-container, .movieList-family .movieMain-container, .movieList-scienceFiction .movieMain-container  {
   display: inline-block;
   margin-right: 8px;
 }
 
-.trendingPreview-movieList .movie-container .movie-img {
+.trendingPreview-movieList .movie-container .movie-img, .movieList-action .movieMain-container .movie-img, .movieList-love .movieMain-container .movie-img, .movieList-family .movieMain-container .movie-img, .movieList-scienceFiction .movieMain-container .movie-img  {
   height: 225px;
   min-height: 225px;
   max-height: 225px;
@@ -209,6 +213,24 @@ button {
   max-width: 150px;
 }
 
+/* .movieList-action .movieMain-container .movie-img, .movieList-love .movieMain-container .movie-img, .movieList-family .movieMain-container .movie-img, .movieList-scienceFiction .movieMain-container .movie-img  {
+  height: 425px;
+  min-height: 425px;
+  max-height: 425px;
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+}
+
+.trendingPreview-movieList, .movieList-action, .movieList-love, .movieList-family, .movieList-scienceFiction  {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 241px;
+  padding-left: 7px;
+  padding-bottom: 16px;
+  margin-top: 20px;
+} */
 
 /* Categories */
 .category-container {
@@ -343,7 +365,7 @@ button {
 /* Footer */
 footer {
   background-color: var(--purple-medium-3);
-  color: var(--purple-light-2);
+  color: var(--purple-dark-2);
   text-align: center;
   height: 48px;
   display: flex;
