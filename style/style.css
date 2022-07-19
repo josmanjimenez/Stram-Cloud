@@ -142,6 +142,7 @@ button {
   font-size: 42px;
   
 }
+	
 
 .header-arrow {
   font-weight: var(--font-weight-text2);
@@ -151,7 +152,7 @@ button {
   display: inline-block;
 }
 .header-arrow--white {
-  color: var(--purple-light-1);
+  color: whitesmoke;
 }
 
 .header-searchForm {
