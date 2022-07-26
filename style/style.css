@@ -123,8 +123,7 @@ button {
 }
 
 .header-container--long {
-  background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
+
   background-size: cover !important;
   height: 480px;
   position: fixed;
@@ -150,6 +149,8 @@ button {
   margin-bottom: 16px;
   cursor: pointer;
   display: inline-block;
+  position: fixed;
+  top: 0px;
 }
 .header-arrow--white {
   color: whitesmoke;
@@ -200,12 +201,17 @@ button {
   padding-bottom: 16px;
 }
 
-.trendingPreview-movieList .movie-container,.movieList-action .movieMain-container, .movieList-love .movieMain-container, .movieList-family .movieMain-container, .movieList-scienceFiction .movieMain-container  {
+.trendingPreview-movieList .movie-container,.movieList-action .movieMain-container, .movieList-love .movieMain-container, .movieList-family .movieMain-container, .movieList-scienceFiction .movieMain-container ,.relatedMovies-container .movieMain-container {
   display: inline-block;
   margin-right: 8px;
 }
 
-.trendingPreview-movieList .movie-container .movie-img, .movieList-action .movieMain-container .movie-img, .movieList-love .movieMain-container .movie-img, .movieList-family .movieMain-container .movie-img, .movieList-scienceFiction .movieMain-container .movie-img  {
+#genericList .movieMain-container {
+  margin: 0 auto 30px ;
+
+}
+
+.trendingPreview-movieList .movie-container .movie-img, .movieList-action .movieMain-container .movie-img, .movieList-love .movieMain-container .movie-img, .movieList-family .movieMain-container .movie-img, .movieList-scienceFiction .movieMain-container .movie-img,.movieDetail-container .relatedMovies-scrollContainer .movieMain-container .movie-img {
   height: 225px;
   min-height: 225px;
   max-height: 225px;

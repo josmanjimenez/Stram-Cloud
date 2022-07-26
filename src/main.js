@@ -13,6 +13,8 @@ const api = axios.create({
 
 const link ='https://api.themoviedb.org/3/trending/movie/day' + API_KEY;
 
+
+
 async function getTrendingMoviesPreview() {
     const get = await api('/trending/movie/day');
     const movies = get.data.results;
@@ -23,7 +25,10 @@ async function getTrendingMoviesPreview() {
         const moviesContainer = document.createElement('div');
         moviesContainer.classList.add('movie-container');
         moviesContainer.addEventListener('click', ()=>{
-          location.hash=`#movie=${movie.id}`});
+          location.hash=`#movie=${movie.id}`
+          location.reload()
+        });
+          
 
         const movieImg = document.createElement('img');
         movieImg.classList.add('movie-img');
@@ -40,7 +45,31 @@ async function getTrendingMoviesPreview() {
     
 }
 
+async function searchMovies (query){
+  const {data} =await api('/search/movie',{
+    params:{
+      query,
+    },
+  });
+  const movies= data.results;
+  console.log(movies);
+  movies.forEach(movie=> {
+    const movieContainer = document.createElement('div');
+    movieContainer.classList.add('movieMain-container') ;
+    movieContainer.addEventListener('click', ()=>{
+      location.hash=`#movie=${movie.id}`
+      location.reload();
+    });
+    const movieImg = document.createElement('img');
+    movieImg.classList.add('movie-img');
+    movieImg.setAttribute('src','https://image.tmdb.org/t/p/w300'+ movie.poster_path);
+    movieImg.setAttribute('alt',movie.title);
 
+    movieContainer.appendChild(movieImg);
+    genericSection.appendChild(movieContainer);
+  })
+  
+}
 
 
 
@@ -86,6 +115,7 @@ async function getTrendingMoviesPreview() {
       categoryTitle.classList.add('category-title');
       categoryTitle.addEventListener('click',()=>{
         location.hash=`#category=${category.id}-${category.name}`;
+        location.reload();
       })
       categoryTitle.setAttribute('id', 'id'+ category.id);
       const textcat= document.createTextNode(category.name);
@@ -116,6 +146,7 @@ async function getTrendingMoviesPreview() {
         moviesContainer.classList.add('movieMain-container');
         moviesContainer.addEventListener('click', ()=>{
           location.hash=`#movie=${movie.id}`
+          location.reload()
         });
         const movieImg = document.createElement('img');
         movieImg.classList.add('movie-img');
@@ -126,7 +157,7 @@ async function getTrendingMoviesPreview() {
 
         moviesContainer.appendChild(movieImg);
         actionList.appendChild(moviesContainer);
-    
+          
     
     });
     }
@@ -151,6 +182,7 @@ async function getTrendingMoviesPreview() {
         moviesContainer.classList.add('movieMain-container');
         moviesContainer.addEventListener('click', ()=>{
           location.hash=`#movie=${movie.id}`
+          location.reload()
         });
         
         const movieImg = document.createElement('img');
@@ -188,6 +220,7 @@ async function getTrendingMoviesPreview() {
         moviesContainer.classList.add('movieMain-container');
         moviesContainer.addEventListener('click', ()=>{
           location.hash=`#movie=${movie.id}`
+          location.reload()
         });
         
         const movieImg = document.createElement('img');
@@ -225,6 +258,7 @@ async function getTrendingMoviesPreview() {
         moviesContainer.classList.add('movieMain-container');
         moviesContainer.addEventListener('click', ()=>{
           location.hash=`#movie=${movie.id}`
+          location.reload()
         });
         
         const movieImg = document.createElement('img');
@@ -239,7 +273,7 @@ async function getTrendingMoviesPreview() {
     
     
     });
-
+      
     
     }
 
@@ -283,14 +317,74 @@ async function getTrendingMoviesPreview() {
       
       });
       }
+
+      
+    
+
+    
   
       async function movieDetail (id){
         const {data:movie} = await api(`/movie/${id}`);
-        console.log (movie);
+        
 
         movieDetailTitle.innerHTML=movie.title;
         movieDetailDescription.innerHTML=movie.overview;
-        movieDetailScore.innerHTML=movie.vote_average;headerSection.style.background=`url(https://image.tmdb.org/t/p/w300${movie.poster_path})`;
+        movieDetailScore.innerHTML=movie.vote_average;
+        headerSection.style.background= `linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%),url(https://image.tmdb.org/t/p/w300${movie.poster_path})`;
+        getMoviesListRelated(id);
+        getMoviesListCategoriesRelated(id);
 
       }
+     
+      async function getMoviesListRelated(id) {
+        const {data} = await api(`/movie/${id}/recommendations`);
+        const movies = data.results;
       
+        relatedMoviesContainer.innerHTML='';
+       
+        movies.forEach(movie => {
+            
+            const moviesContainer = document.createElement('div');
+            moviesContainer.classList.add('movieMain-container');
+            moviesContainer.addEventListener('click', ()=>{
+              location.hash=`#movie=${movie.id}`
+              location.reload()});
+            
+            const movieImg = document.createElement('img');
+            movieImg.classList.add("movie-img");
+            movieImg.setAttribute('alt',movie.title);
+            movieImg.setAttribute("src",'https://image.tmdb.org/t/p/w300'+ movie.poster_path);
+            
+          
+          moviesContainer.appendChild(movieImg);
+          relatedMoviesContainer.appendChild(moviesContainer);
+          
+        
+          });
+          }
+
+            async  function getMoviesListCategoriesRelated(id){
+            const {data} = await api(`/movie/${id}`);
+            const movies=data.genres;
+            movieDetailCategoriesList.innerHTML="";
+            console.log(movies);
+            movies.forEach(movie=>{
+              const categoryContainer = document.createElement('div');
+              categoryContainer.classList.add('category-container');
+          
+              const categoryTitle  = document.createElement('h3');
+              categoryTitle.classList.add('category-title');
+              categoryTitle.addEventListener('click',()=>{
+                location.hash=`#category=${movie.id}-${movie.name}`;
+              })
+              categoryTitle.setAttribute('id', 'id'+ movie.id);
+              const textcat= document.createTextNode(movie.name);
+              
+             categoryTitle.appendChild(textcat);
+             categoryContainer.appendChild(categoryTitle)
+             movieDetailCategoriesList.appendChild(categoryContainer);
+             console.log(movie);
+
+            });
+            
+          }
