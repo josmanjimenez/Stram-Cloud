@@ -301,6 +301,7 @@ async function searchMovies (query){
           movieImg.setAttribute('src','https://image.tmdb.org/t/p/w300'+ movie.poster_path, );
           movieImg.addEventListener('click', ()=> {
             location.hash=`#movie=${movie.id}-${movie.genre_ids[0]}`;
+            window.location.reload();
 
           })
           
@@ -347,8 +348,8 @@ async function searchMovies (query){
             const moviesContainer = document.createElement('div');
             moviesContainer.classList.add('movieMain-container');
             moviesContainer.addEventListener('click', ()=>{
-              location.hash=`#movie=${movie.id}`
-              location.reload()});
+              location.hash=`#movie=${movie.id}`;
+              window.location.reload()});
             
             const movieImg = document.createElement('img');
             movieImg.classList.add("movie-img");
@@ -376,6 +377,7 @@ async function searchMovies (query){
               categoryTitle.classList.add('category-title');
               categoryTitle.addEventListener('click',()=>{
                 location.hash=`#category=${movie.id}-${movie.name}`;
+                window.location.reload();
               })
               categoryTitle.setAttribute('id', 'id'+ movie.id);
               const textcat= document.createTextNode(movie.name);
