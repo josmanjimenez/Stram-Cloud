@@ -134,14 +134,14 @@ async function searchMovies (query){
       },
     });
     const movies = get.data.results;
-    console.log (movies);
+    console.log ('action',movies);
     actionList.innerHTML='';
     // const titleList =document.createElement('h2');
     // const textTitleList =document.createTextNode('Action');
     // titleList.appendChild(textTitleList)
     // actionList.appendChild(titleList)
     movies.forEach(movie => {
-        
+        console.log("action")
         const moviesContainer = document.createElement('div');
         moviesContainer.classList.add('movieMain-container');
         moviesContainer.addEventListener('click', ()=>{
@@ -151,11 +151,12 @@ async function searchMovies (query){
         const movieImg = document.createElement('img');
         movieImg.classList.add('movie-img');
         movieImg.setAttribute ('alt', movie.title);
-        movieImg.setAttribute('src','https://image.tmdb.org/t/p/w300'+ movie.poster_path, );
+        movieImg.setAttribute('src','https://image.tmdb.org/t/p/w300'+ movie.poster_path);
         
         
 
         moviesContainer.appendChild(movieImg);
+
         actionList.appendChild(moviesContainer);
           
     
@@ -171,7 +172,7 @@ async function searchMovies (query){
     });
     const movies = get.data.results;
   
-    actionList.innerHTML='';
+    loveList.innerHTML='';
     // const titleList =document.createElement('h2');
     // const textTitleList =document.createTextNode('Action');
     // titleList.appendChild(textTitleList)
@@ -209,7 +210,7 @@ async function searchMovies (query){
     });
     const movies = get.data.results;
   
-    actionList.innerHTML='';
+    familyList.innerHTML='';
     // const titleList =document.createElement('h2');
     // const textTitleList =document.createTextNode('Action');
     // titleList.appendChild(textTitleList)
@@ -247,7 +248,7 @@ async function searchMovies (query){
     });
     const movies = get.data.results;
     
-    actionList.innerHTML='';
+    fictionList.innerHTML='';
     // const titleList =document.createElement('h2');
     // const textTitleList =document.createTextNode('Action');
     // titleList.appendChild(textTitleList)
@@ -285,7 +286,6 @@ async function searchMovies (query){
       });
       const movies = get.data.results;
       console.log (movies);
-      actionList.innerHTML='';
       // const titleList =document.createElement('h2');
       // const textTitleList =document.createTextNode('Action');
       // titleList.appendChild(textTitleList)

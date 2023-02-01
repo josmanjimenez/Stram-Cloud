@@ -192,6 +192,11 @@ button {
   width: 72px;
 }
 
+.moviesList-title{
+  margin: 0 0 15px 25px;
+ 
+}
+
 .trendingPreview-movieList, .movieList-action, .movieList-love, .movieList-family, .movieList-scienceFiction  {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -199,6 +204,7 @@ button {
   height: 241px;
   padding-left: 7px;
   padding-bottom: 16px;
+  margin-bottom: 45px;
 }
 
 .trendingPreview-movieList .movie-container,.movieList-action .movieMain-container, .movieList-love .movieMain-container, .movieList-family .movieMain-container, .movieList-scienceFiction .movieMain-container ,.relatedMovies-container .movieMain-container {
